@@ -71,7 +71,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 set LOCATION=
-set BINARY=npp.7.6.5.Installer.x64.exe
+set BINARY=npp.7.6.6.Installer.x64.exe
 set FLAGS=/S
 
 REM | ========

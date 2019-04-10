@@ -25,6 +25,8 @@ REM |  - Added additional comments to explain code
 REM |  - Rewrote "Get date info" to be more efficient
 REM | -- 2019-04-01 --
 REM |  - KMS_Sev now uses PDQ Deploy package first parameter instead of directly using FQDN
+REM | -- 2019-04-10 --
+REM | Added echo to inform of ISO download, deletion.
 REM | ----------------
 
 REM | ================================
@@ -84,17 +86,21 @@ REM | INSTALL
 REM | ========
 
 REM | Download ISO from share
+echo Downloading ISO...
 COPY %NASISO% %ISO%
 
 REM | Mount ISO with powerShell
+echo Mounting ISO...
 POWERSHELL Mount-DiskImage -ImagePath "%ISO%"
 
 REM | Get ISO drive letter, set as variable
+echo Setting ISO drive letter...
 For /F "Skip=1 Delims=" %%A In ('
     "WMIC LogicalDisk Where (VolumeName='SW_DVD5_Visio_Pr') Get Name"
 ') Do For %%B In (%%A) Do Set "ISODRIVE=%%B"
 
 REM | Run installer with customisation adminfile
+echo Installing Microsoft Visio 2016...
 %ISODRIVE%\setup.exe /adminfile install.msp
 
 REM | =====================
@@ -102,9 +108,11 @@ REM | POST-INSTALL CLEANUP
 REM | =====================
 
 REM | Dismount ISO with PowerShell
+echo Dismounting ISO...
 IF EXIST %ISO% POWERSHELL Dismount-DiskImage -ImagePath "%ISO%"
 
 REM | Delete ISO
+echo Deleting ISO...
 IF EXIST %ISO% DEL /f %ISO%
 
 REM | Point Office to KMS and activate

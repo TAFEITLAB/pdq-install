@@ -67,7 +67,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 set LOCATION=
-set BINARY=FileZilla_3.42.0_win64-setup.exe
+set BINARY=FileZilla_3.42.1_win64-setup.exe
 set FLAGS=/S
 
 REM | ========

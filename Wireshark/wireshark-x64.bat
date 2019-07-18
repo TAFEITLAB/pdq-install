@@ -28,6 +28,9 @@ REM |  - Reinstated REM comments
 REM |  - Added additional comments to explain code
 REM |  - Rewrote "Get date info" to be more efficient 
 REM | ----------------
+REM | -- 2019-06-24--
+REM |  - Added flags to Wireshark
+REM | ----------------
 
 REM | ================================
 REM | PREPARE ENVIRONMENT FOR INSTALL
@@ -77,8 +80,8 @@ REM | -- Set NMap binary and flags
 set NMBINARY=nmap-7.70-setup.exe
 set NMFLAGS=/S
 REM | -- Set Wireshark binary and flags
-set WSBINARY=Wireshark-win64-3.0.0.exe
-set WSFLAGS=/S
+set WSBINARY=Wireshark-win64-3.0.3.exe
+set WSFLAGS=/NCRC /S /desktopicon=no /quicklaunchicon=no
 
 REM | ========
 REM | INSTALL

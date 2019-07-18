@@ -70,7 +70,7 @@ set LOGFILE=
 
 REM | Package to install.
 REM | - Do not use trailing slashes (\).
-set BINARY=Dropbox 73.4.118 Offline Installer.exe
+set BINARY=Dropbox 77.4.131 Offline Installer.exe
 set FLAGS=/S
 
 REM | ========

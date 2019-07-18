@@ -78,7 +78,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 SET LOCATION=
-SET BINARY=chrome.enterprise.75.0.3770.80.msi
+SET BINARY=chrome.enterprise.75.0.3770.142.msi
 SET FLAGS=ALLUSERS=1 /q /norestart
 
 REM | ========

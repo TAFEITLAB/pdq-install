@@ -67,7 +67,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 set LOCATION=
-set BINARY=vlc-3.0.7-win64.exe
+set BINARY=vlc-3.0.7.1-win64.exe
 set FLAGS=ALLUSERS=1 /L=1033 /S INSTALLDIR="C:\Program Files\VLC"
 
 REM | ========

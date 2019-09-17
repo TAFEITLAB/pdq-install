@@ -77,7 +77,7 @@ if not exist %LOGPATH% mkdir %LOGPATH%
 REM | Package to install.
 REM | - Do not use trailing slashes (\)
 REM | -- Set NMap binary and flags
-set NMBINARY=nmap-7.70-setup.exe
+set NMBINARY=nmap-7.80-setup.exe
 set NMFLAGS=/S
 REM | -- Set Wireshark binary and flags
 set WSBINARY=Wireshark-win64-3.0.3.exe

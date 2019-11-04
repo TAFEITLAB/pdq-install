@@ -80,7 +80,7 @@ REM | -- Set NMap binary and flags
 set NMBINARY=nmap-7.80-setup.exe
 set NMFLAGS=/S
 REM | -- Set Wireshark binary and flags
-set WSBINARY=Wireshark-win64-3.0.3.exe
+set WSBINARY=Wireshark-win64-3.0.5.exe
 set WSFLAGS=/NCRC /S /desktopicon=no /quicklaunchicon=no
 
 REM | ========

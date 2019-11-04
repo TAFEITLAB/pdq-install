@@ -63,7 +63,7 @@ if not exist %LOGPATH% mkdir %LOGPATH%
 
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
-set BINARY=VMware-workstation-full-15.1.0-13591040.exe
+set BINARY=VMware-workstation-full-15.5.0-14665864.exe
 REM | NB: %1 in SERIALNUMBER refers to PDQ Deploy package parameter. Ensure it is set.
 set FLAGS=/s /nsr /v/qn EULAS_AGREED=1 SERIALNUMBER="%1" AUTOSOFTWAREUPDATE=0 DATACOLLECTION=0 DESKTOP_SHORTCUT=0 ADDLOCAL=ALL DISABLE_AUTORUN=0 QUICKLAUNCH_SHORTCUT=0 REBOOT=ReallySuppress
 

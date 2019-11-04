@@ -66,7 +66,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
-set BINARY=Firefox Setup 68.0.2esr.exe
+set BINARY=Firefox Setup 68.2.0esr.exe
 set FLAGS=/INI="%CD%\configuration.ini"
 
 REM | ========
@@ -83,6 +83,35 @@ wmic product where "name like 'Mozille Firefox%%'" call uninstall /nointeractive
 REM | Call binary and flags.
 REM | - Quote marks used to avoid issues with spaces in binary name.
 "%BINARY%" %FLAGS%
+
+REM | Disable automatic updates by:
+REM | - Removing Mozilla Maintenance Service
+IF EXIST "%PROGRAMFILES(X86)%\Mozilla Maintenance Service\uninstall.exe" (
+START "%PROGRAMFILES(X86)%\Mozilla Maintenance Service\uninstall.exe" /S
+)
+IF EXIST "%PROGRAMFILES%\Mozilla Maintenance Service\uninstall.exe" (
+START "%PROGRAMFILES%\Mozilla Maintenance Service\uninstall.exe" /S
+)
+IF EXIST "%PROGRAMFILES(X86)%\Mozilla Firefox\maintenanceservice.exe" (
+DEL /F "%PROGRAMFILES(X86)%\Mozilla Firefox\maintenanceservice.exe"
+)
+IF EXIST "%PROGRAMFILES%\Mozilla Firefox\maintenanceservice.exe" (
+DEL /F "%PROGRAMFILES%\Mozilla Firefox\maintenanceservice.exe"
+)
+REM | - Removing Mozilla Minatenance Service Installer
+IF EXIST "%PROGRAMFILES(X86)%\Mozilla Firefox\maintenanceservice_installer.exe" (
+DEL /F "%PROGRAMFILES(X86)%\Mozilla Firefox\maintenanceservice_installer.exe"
+)
+IF EXIST "%PROGRAMFILES%\Mozilla Firefox\maintenanceservice_installer.exe" (
+DEL /F "%PROGRAMFILES%\Mozilla Firefox\maintenanceservice_installer.exe"
+)
+REM | - Removing Updater.exe
+IF EXIST "%PROGRAMFILES(X86)%\Mozilla Firefox\updater.exe" (
+DEL /F "%PROGRAMFILES(X86)%\Mozilla Firefox\updater.exe"
+)
+IF EXIST "%PROGRAMFILES%\Mozilla Firefox\updater.exe" (
+DEL /F "%PROGRAMFILES%\Mozilla Firefox\updater.exe"
+)
 
 REM | ============================
 REM | CLEAR ENVIRONMENT and EXIT

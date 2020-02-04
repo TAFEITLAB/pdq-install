@@ -121,14 +121,17 @@ REM | -- Check if dotNet already exists on target
 :dotnet
 reg query "HKLM\SOFTWARE\Microsoft\NET Framework Setup\NDP\v3.5" | if %errorlevel%==0 goto gsn3
 REM | -- Check if file exists on server
-if EXIST \\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs (
+REM if EXIST \\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs (
+if EXIST \\rnas\tmp\dotNet\sxs (
 REM | Run install via PowerShell
-powershell.exe -Command "& { DISM /ONLINE /Enable-feature /FeatureName:NetFx3 /All /Source:\\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs }"
+REM powershell.exe -Command "& { DISM /ONLINE /Enable-feature /FeatureName:NetFx3 /All /Source:\\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs }"
+powershell.exe -Command "& { DISM /ONLINE /Enable-feature /FeatureName:NetFx3 /All /Source:\\rnas\tmp\dotNet\sxs }"
 ) ELSE (
 REM | -- File not found. Echo error message.
 echo dotNetFx not found. Check network connection.
 echo This installation requires access to:
-echo \\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs
+REM echo \\rnas\tmp\Win10edu.16299.125.171213-1220\sources\sxs
+echo \\rnas\tmp\dotNet\sxs
 echo.
 goto finished
 )

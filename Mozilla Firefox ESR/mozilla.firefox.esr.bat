@@ -66,7 +66,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
-set BINARY=Firefox Setup 68.2.0esr.exe
+set BINARY=Firefox Setup 68.4.2esr.exe
 set FLAGS=/INI="%CD%\configuration.ini"
 
 REM | ========

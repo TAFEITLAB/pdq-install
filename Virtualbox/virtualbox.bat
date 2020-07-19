@@ -1,9 +1,9 @@
 @echo off
 
-REM | ==========
-REM | FILEZILLA
-REM | ==========
-REM | Purpose: Silently install Filezilla FTP Client via PDQ Deploy.
+REM | =========================
+REM | Virtualboz
+REM | =========================
+REM | Purpose: Silently install Oracle Virtualbox via PDQ Deploy.
 REM | Requirements: 
 REM |   - Script in same directory as binary.
 REM |   - Script matches binary name.
@@ -13,13 +13,8 @@ REM | Organisation: TAFEITLAB
 REM | ================
 REM | VERSION HISTORY
 REM | ================ 
-REM | -- 2019-03-11 --
-REM | Created script.
-REM | ----------------
-REM | -- 2019-03-27--
-REM |  - Reinstated REM comments
-REM |  - Added additional comments to explain code
-REM |  - Rewrote "Get date info" to be more efficient 
+REM | -- 2020-03-16 --
+REM | First complete version
 REM | ----------------
 
 REM | ================================
@@ -59,31 +54,29 @@ REM |     %~n0% = Script file name, no file extension
 REM |     %~n0~x0 = Script file name, with file extension
 REM | - Set log file name
 REM |   - Include log path to ensure it is saved in the correct location.
-set LOGFILE=
+set LOGFILE=%LOGPATH%\%~n0_%LOGDATE%.log
 
 REM | Create log directory if does not exist
-IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
+if not exist %LOGPATH% mkdir %LOGPATH%
 
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
-set LOCATION=
-set BINARY=FileZilla_3.47.2.1_win64-setup.exe
-set FLAGS=/S
+set BINARY=VirtualBox-6.1.4-136177-Win.exe
+set FLAGS=--silent --ignore-reboot
+set VBOXMAN="C:\Program Files\Oracle\VirtualBox\VBoxManage.exe"
+set VBOXEXT=Oracle_VM_VirtualBox_Extension_Pack-6.1.4.vbox-extpack
 
 REM | ========
 REM | INSTALL
 REM | ========
 
-REM | Remove previous versions first
-if exist "%ProgramFiles(x86)%\FileZilla FTP Client\uninstall.exe" "%ProgramFiles(x86)%\FileZilla FTP Client\uninstall.exe" /S 2>NUL
-if exist "%ProgramFiles%\FileZilla FTP Client\uninstall.exe" "%ProgramFiles%\FileZilla FTP Client\uninstall.exe" /S 2>NUL
+REM | Kill processes that may interfere with installation
 
 REM | Call binary and flags.
 REM | - Quote marks used to avoid issues with spaces in binary name.
 "%BINARY%" %FLAGS%
 
-REM | Remove desktop shortcut
-if exist "%public%\Desktop\FileZilla Client.lnk" del "%public%\Desktop\FileZilla Client.lnk"
+echo y | %VBOXMAN% extpack install --replace %VBOXEXT%
 
 REM | ============================
 REM | CLEAR ENVIRONMENT and EXIT

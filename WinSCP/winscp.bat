@@ -67,8 +67,8 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 set LOCATION=
-set BINARY=WinSCP-5.15.9-Setup.exe
-set FLAGS=/VERYSILENT /NOCANDY /NORESTART /MERGETASKS="!desktopicon"
+set BINARY=WinSCP-5.17.3-Setup.exe
+set FLAGS=/VERYSILENT /NOCANDY /NORESTART  /CLOSEAPPLICATIONS /MERGETASKS="!desktopicon" /ALLUSERS
 
 REM | ========
 REM | INSTALL

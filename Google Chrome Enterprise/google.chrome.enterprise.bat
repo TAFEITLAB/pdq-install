@@ -1,4 +1,4 @@
-@ echo off
+@echo off
 
 REM | =========================
 REM | GOOGLE CHROME ENTERPRISE
@@ -78,7 +78,7 @@ IF NOT EXIST %LOGPATH% MKDIR %LOGPATH%
 REM | Packages and flags
 REM | - Do not use trailing slashes (\).
 SET LOCATION=
-SET BINARY=chrome.enterprise.79.0.3945.130.msi
+SET BINARY=chrome.enterprise.81.0.4044.92.msi
 SET FLAGS=ALLUSERS=1 /q /norestart
 
 REM | ========
